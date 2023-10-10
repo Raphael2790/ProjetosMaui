@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Componentes.Forms.TimePickerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="TimePickerPage">
+    <VerticalStackLayout Padding="10">
+        <Label
+            HorizontalOptions="Start"
+            Text="Selecione a hora do seu voo:"
+            VerticalOptions="Center" />
+        <TimePicker
+            Format="H"
+            HorizontalOptions="Start"
+            TextColor="DodgerBlue"
+            Time="14:20"
+            VerticalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

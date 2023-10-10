@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Animations.BasicAnimations"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BasicAnimations">
+    <!--  Todas as transições são absolutas pois alterar o valor inicial do estado e os mantem  -->
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border HeightRequest="300">
+                <Image
+                    x:Name="ImageBot"
+                    Source="dotnet_bot.png"
+                    WidthRequest="100" />
+            </Border>
+            <Button Clicked="Aumentar_Clicked" Text="Aumentar" />
+            <Button Clicked="Diminuir_Clicked" Text="Diminuir" />
+            <Button Clicked="Normal_Clicked" Text="Normal" />
+            <Button Clicked="Mover_Clicked" Text="Mover" />
+            <Button Clicked="Rotacionar_Clicked" Text="Rotacionar" />
+            <Button Clicked="Transparecia_Clicked" Text="Mudar Opacidade" />
+            <Border Margin="10" Padding="10">
+                <StackLayout>
+                    <Button Clicked="Sequencial_Clicked" Text="Sequencial" />
+                    <Button Clicked="Simultaneo_Clicked" Text="Simultaneo" />
+                    <Button Clicked="Cancelamento_Clicked" Text="Cancelar" />
+                </StackLayout>
+            </Border>
+
+            <Border>
+                <StackLayout>
+                    <Button Clicked="Customizada_Clicked" Text="Animação Customizada" />
+                    <Button Clicked="MudancaCor_Clicked" Text="Animação Cor" />
+                </StackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

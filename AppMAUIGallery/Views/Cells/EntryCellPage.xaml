@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Cells.EntryCellPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="EntryCellPage">
+    <VerticalStackLayout>
+        <TableView>
+            <TableSection>
+                <EntryCell
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
+                    Label="Digite o nome do presidente"
+                    LabelColor="Red"
+                    Placeholder="Nome do presidente" />
+                <EntryCell
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    Label="Digite a idade do presidente"
+                    LabelColor="Red"
+                    Placeholder="Idade do presidente" />
+                <EntryCell
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
+                    Label="Digite o nome do vice-presidente"
+                    LabelColor="Red"
+                    Placeholder="Nome do vice-presidente" />
+                <EntryCell
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    Label="Digite a idade do vice-presidente"
+                    LabelColor="Red"
+                    Placeholder="Idade do vice-presidente" />
+            </TableSection>
+        </TableView>
+    </VerticalStackLayout>
+</ContentPage>

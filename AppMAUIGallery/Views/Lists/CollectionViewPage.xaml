@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Lists.CollectionViewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="CollectionViewPage">
+    <Grid>
+
+        <RefreshView RefreshColor="Purple" Refreshing="RefreshView_Refreshing">
+            <!--  Collection View possuem scroll infinito determinando a propriedade de items restantes e a função de execução  -->
+            <!--  Propriedade ItemsLayout pode receber os valores : VerticalList; HorizontalList; VerticalGrid, 2; HorizontalGrid, 2  -->
+            <CollectionView
+                x:Name="CollectionViewControl"
+                IsGrouped="True"
+                RemainingItemsThreshold="-1"
+                RemainingItemsThresholdReached="CollectionViewControl_RemainingItemsThresholdReached"
+                Scrolled="CollectionViewControl_Scrolled"
+                SelectionChanged="CollectionViewControl_SelectionChanged"
+                SelectionMode="Multiple">
+                <CollectionView.Header>
+                    <Label x:Name="LblSelectedMovies" />
+                </CollectionView.Header>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                    <!--<GridItemsLayout
+                    HorizontalItemSpacing="10"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="10" />-->
+                </CollectionView.ItemsLayout>
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="10" BackgroundColor="LightGray">
+                            <Label Text="Inicio " />
+                            <Label Text="{Binding CompanyName}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Text="{Binding Name}" />
+                            <Label Text="{Binding Description}" TextColor="Gray" />
+
+                            <HorizontalStackLayout>
+                                <Label Margin="10" Text="{Binding LaunchYear}" />
+                                <Label Margin="10" Text="{Binding Duration}" />
+                            </HorizontalStackLayout>
+                            <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.GroupFooterTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="10" BackgroundColor="#F2F2F2">
+                            <Label Text="Final " />
+                            <Label Text="{Binding CompanyName}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.GroupFooterTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <Button
+            Clicked="Button_Clicked"
+            HorizontalOptions="End"
+            Text="Vá para o filme 8"
+            VerticalOptions="Start" />
+
+        <Label
+            x:Name="LblSrollStatus"
+            Padding="10"
+            BackgroundColor="LightGray"
+            HorizontalOptions="End"
+            VerticalOptions="End" />
+    </Grid>
+</ContentPage>

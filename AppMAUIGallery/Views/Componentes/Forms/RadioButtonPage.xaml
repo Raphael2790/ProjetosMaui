@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Componentes.Forms.RadioButtonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RadioButtonPage">
+    <VerticalStackLayout Padding="10">
+        <StackLayout>
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual linguagem de programação você mais gosta?"
+                VerticalOptions="Center" />
+            <RadioButton
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="C#"
+                GroupName="Linguagem"
+                IsChecked="True" />
+            <RadioButton
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="Java"
+                GroupName="Linguagem" />
+            <RadioButton
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="Python"
+                GroupName="Linguagem" />
+            <RadioButton
+                BorderColor="DodgerBlue"
+                BorderWidth="1"
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="JavaScript"
+                GroupName="Linguagem" />
+            <Label x:Name="LblResultAsk01" />
+        </StackLayout>
+        <StackLayout RadioButtonGroup.GroupName="Linguagem2">
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual linguagem de programação você menos gosta?"
+                VerticalOptions="Center" />
+            <RadioButton
+                Content="C#"
+                GroupName="Linguagem2"
+                IsChecked="True" />
+            <RadioButton Content="Java" />
+            <RadioButton Content="Python" />
+            <RadioButton
+                BorderColor="DodgerBlue"
+                BorderWidth="1"
+                Content="JavaScript" />
+        </StackLayout>
+        <StackLayout>
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual o mascote do NET MAUI?"
+                VerticalOptions="Center" />
+            <RadioButton Value="Robot">
+                <RadioButton.Content>
+                    <HorizontalStackLayout>
+                        <Label Text="Robot" />
+                        <Image Source="dotnet_bot.png" WidthRequest="30" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Monkey">
+                <RadioButton.Content>
+                    <HorizontalStackLayout>
+                        <Label Text="Monkey" />
+                        <Image Source="dotnet_monkey.png" WidthRequest="30" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Elephant">
+                <RadioButton.Content>
+                    <HorizontalStackLayout>
+                        <Label Text="Elephant" />
+                        <Image Source="dotnet_elephant.png" WidthRequest="30" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

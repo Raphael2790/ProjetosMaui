@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Componentes.Forms.EditorPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="EditorPage">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Start"
+            Text="Faça um resumo do seu caso:"
+            VerticalOptions="Center" />
+        <!--  Quando auto size habilitado e altura definida será realizado scroll  -->
+        <!--  Quando altura não definida o campo cresce conforme necessidade  -->
+        <Editor
+            AutoSize="TextChanges"
+            HeightRequest="200"
+            IsReadOnly="False"
+            Keyboard="Text"
+            Placeholder="Digite aqui..."
+            PlaceholderColor="Gray"
+            TextColor="Black" />
+    </VerticalStackLayout>
+</ContentPage>

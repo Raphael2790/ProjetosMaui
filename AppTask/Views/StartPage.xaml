@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppTask.Views.StartPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:AppTask.Libraries.Converters"
+    Title="StartPage"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <converter:BooleanToTextDecoratioStrikeThroughConverter x:Key="BooleanToTextDecoratioStrikeThroughConverter" />
+    </ContentPage.Resources>
+    <Grid RowDefinitions="70,*">
+        <Border
+            Margin="20,20,20,0"
+            BackgroundColor="#F7F7F7"
+            HeightRequest="50"
+            StrokeShape="RoundRectangle 25"
+            StrokeThickness="0">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBorderClickedToFocusEntry" />
+            </Border.GestureRecognizers>
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Margin="9,0,0,0"
+                    HeightRequest="33"
+                    Source="find.png" />
+                <Entry
+                    x:Name="EntrySearch"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Pesquisar..."
+                    PlaceholderColor="#A8A8A8"
+                    TextChanged="OnTextChanged_FilterList" />
+            </StackLayout>
+        </Border>
+        <CollectionView x:Name="CollectionViewTasks" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10,5" ColumnDefinitions="70,*,70">
+                        <CheckBox
+                            Grid.Column="0"
+                            HorizontalOptions="Center"
+                            IsChecked="{Binding IsCompleted}">
+                            <CheckBox.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnCheckBoxClickedToComplete" />
+                            </CheckBox.GestureRecognizers>
+                        </CheckBox>
+                        <StackLayout Grid.Column="1">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnStackLayoutClickedToEdit" />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                FontAttributes="Bold"
+                                Text="{Binding Name}"
+                                TextDecorations="{Binding IsCompleted, Converter={StaticResource BooleanToTextDecoratioStrikeThroughConverter}}" />
+                            <Label
+                                Text="{Binding PrevisionDate}"
+                                TextColor="{StaticResource Gray400}"
+                                TextDecorations="{Binding IsCompleted, Converter={StaticResource BooleanToTextDecoratioStrikeThroughConverter}}" />
+                        </StackLayout>
+                        <Image
+                            Grid.Column="2"
+                            HeightRequest="25"
+                            Source="trash.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnImageClickedToDelete" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label
+            x:Name="LblEmptyText"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Text="O que vc deseja fazer?"
+            TextColor="{StaticResource Gray400}"
+            VerticalOptions="Center" />
+        <Button
+            Grid.Row="1"
+            Margin="15"
+            Clicked="OnButtonClickedToAdd"
+            HorizontalOptions="Center"
+            Text="+     Adicionar Tarefa"
+            VerticalOptions="End" />
+    </Grid>
+</ContentPage>
