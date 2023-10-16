@@ -4,7 +4,7 @@ namespace AppMAUIGallery.Views.CommunityMaui.ViewModel;
 
 public class CommunityBehaviorsPageViewModel
 {
-    public ICommand PressedCommand;
+    public ICommand PressedCommand { get; set; }
 
     public CommunityBehaviorsPageViewModel()
     {

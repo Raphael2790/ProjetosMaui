@@ -1,3 +1,4 @@
+using AppMAUIGallery.Models;
 using AppMAUIGallery.Repositories;
 
 namespace AppMAUIGallery.Views;
@@ -16,10 +17,17 @@ public partial class Menu : ContentPage
 
     private void OnTapComponent(object sender, TappedEventArgs e)
     {
-        var page = (Type)e.Parameter;
+        var component = (Components)e.Parameter;
 
-        (App.Current.MainPage as FlyoutPage).Detail = new NavigationPage((Page)Activator.CreateInstance(page));
-        (App.Current.MainPage as FlyoutPage).IsPresented = false;
+        if (component.IsReplaceMainPage)
+        {
+            App.Current.MainPage = (Page)Activator.CreateInstance(component.Page);
+        }
+        else
+        {
+            (App.Current.MainPage as FlyoutPage).Detail = new NavigationPage((Page)Activator.CreateInstance(component.Page));
+            (App.Current.MainPage as FlyoutPage).IsPresented = false;
+        }
     }
 
     private void OnTapHome(object sender, TappedEventArgs e)

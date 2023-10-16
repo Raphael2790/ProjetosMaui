@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="AppMAUIGallery.Views.Shells.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:AppMAUIGallery.Views.Shells.Pages"
+    Title="AppShell"
+    Shell.TabBarIsVisible="False">
+    <!--<FlyoutItem Title="Página 01" Icon="one.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page01}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Página 02" Icon="two.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page01}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Página 03" Icon="three.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page01}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Página 04" Icon="four.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page01}" />
+    </FlyoutItem>-->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*, 40">
+                <Label
+                    Padding="10,0"
+                    Text="{Binding Title}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Image
+                    Grid.Column="1"
+                    Margin="5"
+                    Source="{Binding Icon}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*, 40">
+                <Label
+                    Padding="10,0"
+                    Text="{Binding Title}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Image
+                    Grid.Column="1"
+                    Margin="7"
+                    Source="{Binding Icon}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <Shell.FlyoutHeader>
+        <StackLayout>
+            <Image HeightRequest="70" Source="clock.png" />
+            <Label
+                FontSize="10"
+                HorizontalOptions="Center"
+                Text="Raphael Santos"
+                TextColor="Black" />
+            <Label
+                FontSize="8"
+                HorizontalOptions="Center"
+                Text="raphael@email.com" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+
+    <!--  Conteudo personalizado  -->
+    <!--<Shell.FlyoutContent>
+        <Label Text="Conteudo" />
+    </Shell.FlyoutContent>-->
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Pagina 01"
+            ContentTemplate="{DataTemplate pages:Page01}"
+            Icon="one.png"
+            Route="page01" />
+        <ShellContent
+            Title="Pagina 02"
+            ContentTemplate="{DataTemplate pages:Page02}"
+            Icon="two.png"
+            Route="page02" />
+        <ShellContent
+            Title="Pagina 03"
+            ContentTemplate="{DataTemplate pages:Page03}"
+            Icon="three.png"
+            Route="page03" />
+        <Tab
+            Title="4 e 5"
+            Icon="four.png"
+            Route="cadastro">
+
+            <ShellContent
+                Title="Pagina 04"
+                Icon="four.png"
+                Route="passo1">
+                <pages:Page04 Shell.TabBarIsVisible="False" />
+            </ShellContent>
+
+            <ShellContent
+                Title="Pagina 05"
+                Icon="five.png"
+                Route="passo2"
+                Shell.TabBarIsVisible="False">
+                <pages:Page05 />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <!--  item clicavel que apenas executa logica atraves de um metodo  -->
+    <MenuItem IconImageSource="out.png" Text="Sair" Clicked="BackToGallery"/>
+
+    <Shell.FlyoutFooter>
+        <Label
+            Padding="10"
+            FontSize="8"
+            Text="Version 1.0.0" />
+    </Shell.FlyoutFooter>
+
+    <!--<TabBar>
+    -->
+    <!--  shell content com data template evita instanciar todas as páginas no inicio  -->
+    <!--
+        <ShellContent
+            Title="Pagina 01"
+            ContentTemplate="{DataTemplate pages:Page01}"
+            Icon="one.png" />
+        <ShellContent
+            Title="Pagina 02"
+            ContentTemplate="{DataTemplate pages:Page02}"
+            Icon="two.png" />
+        <ShellContent
+            Title="Pagina 03"
+            ContentTemplate="{DataTemplate pages:Page03}"
+            Icon="three.png" />
+
+    -->
+    <!--  Podemos aninhar páginas usando a tag Tab e colocar ou mais páginas internas  -->
+    <!--
+        <Tab Title="4 e 5">
+            <pages:Page04 />
+
+            <ShellContent Title="Pagina 05" Icon="five.png">
+                <pages:Page05 />
+            </ShellContent>
+        </Tab>
+    </TabBar>-->
+</Shell>

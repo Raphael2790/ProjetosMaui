@@ -7,6 +7,7 @@ using AppMAUIGallery.Views.Componentes.Mains;
 using AppMAUIGallery.Views.Componentes.Visuals;
 using AppMAUIGallery.Views.Layouts;
 using AppMAUIGallery.Views.Lists;
+using AppMAUIGallery.Views.Shells;
 using AppMAUIGallery.Views.Styles;
 using AppMAUIGallery.Views.Utils;
 
@@ -29,6 +30,24 @@ public partial class GroupComponentRepository : IGroupComponentRepository
         LoadAnimations();
         LoadUtils();
         LoadCommunity();
+        LoadShell();
+    }
+
+    private void LoadShell()
+    {
+        var components = new List<Components>
+        {
+            new Components
+            {
+                Title = "Shell",
+                Description = "New structure for navigation",
+                Page = typeof(AppShell),
+                IsReplaceMainPage = true
+            }
+        };
+
+        _groups.Add(new GroupComponent("Shells", components));
+        _components.AddRange(components);
     }
 
     private void LoadCommunity()
@@ -46,6 +65,24 @@ public partial class GroupComponentRepository : IGroupComponentRepository
                 Title = "Community Toolkit Behaviors",
                 Description = "Add behaviors to components",
                 Page = typeof(CommunityBehaviorsPage)
+            },
+            new Components
+            {
+                Title = "Community Expander",
+                Description = "Add expander to components",
+                Page = typeof(ExpanderPage)
+            },
+            new Components
+            {
+                Title = "Pop-up",
+                Description = "Add pop-up to components",
+                Page = typeof(PopupPage)
+            },
+            new Components
+            {
+                Title = "Community Toolkit Media Element",
+                Description = "Add media element to components",
+                Page = typeof(MediaElementPage)
             }
         };
 

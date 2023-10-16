@@ -28,10 +28,17 @@ public partial class MainPage : ContentPage
     {
         KeyboardFix.HideKeyboard();
 
-        var page = (Type)e.Parameter;
+        var component = (Components)e.Parameter;
 
-        (App.Current.MainPage as FlyoutPage).Detail = new NavigationPage((Page)Activator.CreateInstance(page));
-        (App.Current.MainPage as FlyoutPage).IsPresented = false;
+        if (component.IsReplaceMainPage)
+        {
+            App.Current.MainPage = (Page)Activator.CreateInstance(component.Page);
+        }
+        else
+        {
+            (App.Current.MainPage as FlyoutPage).Detail = new NavigationPage((Page)Activator.CreateInstance(component.Page));
+            (App.Current.MainPage as FlyoutPage).IsPresented = false;
+        }
     }
 
     private void Entry_TextChanged(object sender, TextChangedEventArgs e)
