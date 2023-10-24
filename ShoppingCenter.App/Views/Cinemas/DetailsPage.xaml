@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ShoppingCenter.App.Views.Cinemas.DetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:media="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:ShoppingCenter.App.ViewModels.Cinemas"
+    Title="DetailsPage"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <vm:DetailsPageViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <media:MediaElement
+            x:Name="player"
+            HeightRequest="203"
+            ShouldLoopPlayback="True"
+            ShouldShowPlaybackControls="False"
+            Source="{Binding Movie.Trailer}"
+            VerticalOptions="Start" />
+        <Image
+            Margin="15"
+            HorizontalOptions="Start"
+            Source="close.png"
+            VerticalOptions="Start"
+            WidthRequest="29">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TapCloseGoToMoviesListCommand}" CommandParameter="{x:Reference player}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image
+            x:Name="btnPause"
+            Margin="0,80,0,0"
+            Source="play.png"
+            VerticalOptions="Start"
+            WidthRequest="50">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="PlayPause" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Border
+            Margin="15"
+            Padding="0,8"
+            BackgroundColor="#DDB3B3B3"
+            HeightRequest="28"
+            HorizontalOptions="End"
+            StrokeShape="RoundRectangle 30"
+            StrokeThickness="0"
+            VerticalOptions="Start"
+            WidthRequest="82">
+            <HorizontalStackLayout Spacing="6">
+                <Image
+                    Source="clock.png"
+                    VerticalOptions="Center"
+                    WidthRequest="22" />
+                <Label
+                    Style="{StaticResource DurationText}"
+                    Text="{Binding Movie.Duration}"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Border>
+        <Border
+            x:Name="MovieText"
+            Margin="0,170,0,0"
+            Padding="50"
+            BackgroundColor="White"
+            StrokeShape="RoundRectangle 30,30,0,0"
+            StrokeThickness="0">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <Label
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource PrimaryText}"
+                        Text="{Binding Movie.Name}"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="0,35,0,0"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource TercearyText}"
+                        Text="{Binding Movie.Description}"
+                        VerticalOptions="Center" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+
+    </Grid>
+</ContentPage>

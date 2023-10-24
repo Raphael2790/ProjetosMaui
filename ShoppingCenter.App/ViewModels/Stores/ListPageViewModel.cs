@@ -31,9 +31,9 @@ public partial class ListPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public async void OnTapEstablishmentGoToDetails(Establishment establishment)
+    public async Task OnTapEstablishmentGoToDetails(Establishment establishment)
     {
-        await Shell.Current.GoToAsync("details", new Dictionary<string, object>
+        await Shell.Current.GoToAsync("detail", new Dictionary<string, object>
         {
             { "establishment", establishment }
         });

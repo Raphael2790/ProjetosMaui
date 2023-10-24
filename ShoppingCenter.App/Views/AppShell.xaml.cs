@@ -6,7 +6,9 @@
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("stores/details", typeof(Views.Stores.DetailsPage));
+            Routing.RegisterRoute("stores/detail", typeof(Views.Stores.DetailsPage));
+            Routing.RegisterRoute("cinemas/detail", typeof(Views.Cinemas.DetailsPage));
+            Routing.RegisterRoute("cinemas/detaildesktop", typeof(Views.Cinemas.DetailDesktopPage));
         }
     }
 }

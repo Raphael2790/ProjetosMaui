@@ -25,6 +25,8 @@ namespace ShoppingCenter.App
 #endif
 
             builder.Services.AddSingleton<StoreService>();
+            builder.Services.AddSingleton<CinemaService>();
+            builder.Services.AddSingleton<TicketService>();
 
             return builder.Build();
         }

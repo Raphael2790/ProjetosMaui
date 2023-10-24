@@ -21,4 +21,14 @@
         <Setter Property="TextColor" Value="#000000" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
     </Style>
+    <Style x:Key="TercearyText" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="#404040" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+    <Style x:Key="DurationText" TargetType="Label">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="FontFamily" Value="OpenSansLight" />
+    </Style>
 </ResourceDictionary>
