@@ -7,7 +7,7 @@
     </Style>
     <Style x:Key="PrimaryText" TargetType="Label">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark='#FFFFFF', Light='#000000'}" />
         <Setter Property="TextTransform" Value="Uppercase" />
         <Setter Property="FontFamily" Value="OpenSansBold" />
     </Style>
@@ -30,5 +30,63 @@
         <Setter Property="FontSize" Value="11" />
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="FontFamily" Value="OpenSansLight" />
+    </Style>
+
+    <Style x:Key="HeadingBase" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style
+        x:Key="HeadingText01"
+        BasedOn="{StaticResource HeadingBase}"
+        TargetType="Label">
+        <Setter Property="TextColor" Value="#000000" />
+    </Style>
+
+    <Style
+        x:Key="HeadingText02"
+        BasedOn="{StaticResource HeadingBase}"
+        TargetType="Label">
+        <Setter Property="TextColor" Value="#FF5524" />
+    </Style>
+
+    <Style x:Key="BorderStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+        <Setter Property="StrokeThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="BorderDotStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="StrokeDashArray" Value="3,3" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#FF5524" />
+        <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HeightRequest" Value="50" />
+    </Style>
+
+    <Style x:Key="SuccessText" TargetType="Label">
+        <Setter Property="TextColor" Value="#1BAB42" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style x:Key="ToleranceText" TargetType="Label">
+        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style x:Key="ToleranceMinutesText" TargetType="Label">
+        <Setter Property="TextColor" Value="#F86237" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="48" />
     </Style>
 </ResourceDictionary>

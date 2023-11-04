@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using ShoppingCenter.App.Libraries.Stores;
 using ShoppingCenter.App.Services;
+using ZXing.Net.Maui.Controls;
 
 namespace ShoppingCenter.App
 {
@@ -13,6 +15,7 @@ namespace ShoppingCenter.App
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
                 .UseMauiCommunityToolkitMediaElement()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,7 +26,7 @@ namespace ShoppingCenter.App
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<TicketPreferencesStore>();
             builder.Services.AddSingleton<StoreService>();
             builder.Services.AddSingleton<CinemaService>();
             builder.Services.AddSingleton<TicketService>();

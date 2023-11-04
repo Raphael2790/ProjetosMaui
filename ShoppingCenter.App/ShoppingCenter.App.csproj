@@ -52,6 +52,7 @@
 	  <None Remove="Resources\Fonts\OpenSans-Bold.ttf" />
 	  <None Remove="Resources\Fonts\OpenSans-Light.ttf" />
 	  <None Remove="Resources\Images\back.svg" />
+	  <None Remove="Resources\Images\camera.svg" />
 	  <None Remove="Resources\Images\cinema.svg" />
 	  <None Remove="Resources\Images\cinemafundo.jpg" />
 	  <None Remove="Resources\Images\clock.svg" />
@@ -70,12 +71,11 @@
 		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Libraries\" />
 	  <Folder Include="ViewModels\Authentications\" />
-	  <Folder Include="ViewModels\Tickets\" />
 	  <Folder Include="ViewModels\Restaurants\" />
 	  <Folder Include="Views\Authentications\" />
 	</ItemGroup>
@@ -106,7 +106,16 @@
 	  <MauiXaml Update="Views\Stores\ListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Tickets\CameraPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Tickets\ListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Tickets\PayPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Tickets\ResultPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Tickets\ScanPage.xaml">
